@@ -7,28 +7,14 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-/**
- *
- * @author RC_Student_lab
- */
-public class login {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
-}
-
-
-
-public class login {
+public class POE1 {
     private String storedUsername;
     private String storedPassword;
     private String firstName;
     private String lastName;
 
     // Constructor for setting user details during registration
-    public login(String firstName, String lastName) {
+    public POE1(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -64,12 +50,12 @@ public class login {
     // Method to register user and return appropriate messages
     public String registerUser(String username, String password) {
         if (!checkUserName(username)) {
-            return "Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters in length";
+            return "Username is not correctly formatted. Please ensure that your username contains an underscore and is no more than 5 characters in length.";
         }
         if (!checkPasswordComplexity(password)) {
-            return "Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.";
+            return "Password is not correctly formatted. Please ensure that the password contains at least 8 characters, a capital letter, a number, and a special character.";
         }
-        return "User successfully registered";
+        return "User successfully registered.";
     }
 
     // Method to verify login details
@@ -80,9 +66,9 @@ public class login {
     // Method to return login status message
     public String returnLoginStatus(String username, String password) {
         if (loginUser(username, password)) {
-            return "Welcome " + firstName + ", " + lastName + " it is great to see you again.";
+            return "Welcome " + firstName + ", " + lastName + ". It is great to see you again.";
         } else {
-            return "Username or password incorrect, please try again";
+            return "Username or password incorrect, please try again.";
         }
     }
 
@@ -97,8 +83,8 @@ public class login {
         System.out.println("Please enter your last name:");
         String lastName = scanner.nextLine();
 
-        // Create a Login object with first name and last name
-        Login login = new Login(firstName, lastName);
+        // Create a POE1 object with first name and last name
+        POE1 login = new POE1(firstName, lastName);
 
         // Registration process
         System.out.println("Registration:");
@@ -109,10 +95,11 @@ public class login {
         String password = scanner.nextLine();
 
         // Display registration status
-        System.out.println(login.registerUser(username, password));
+        String registrationStatus = login.registerUser(username, password);
+        System.out.println(registrationStatus);
 
         // Proceed to login only if registration is successful
-        if (login.registerUser(username, password).equals("User successfully registered")) {
+        if (registrationStatus.equals("User successfully registered.")) {
             // Login process
             System.out.println("\nLogin:");
             System.out.println("Please enter your username:");
